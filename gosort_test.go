@@ -34,3 +34,17 @@ func TestBubbleSort_SortsTheGivenArray(t *testing.T) {
 		}
 	}
 }
+
+func TestInsertionSort_SortsTheGivenArray(t *testing.T) {
+	t.Parallel()
+	for _, tc := range testCases {
+		want := tc.Value
+		got := make([]int, len(tc.Input))
+		copy(got, tc.Input)
+		gs.InsertionSort(got)
+
+		if !cmp.Equal(got, want) {
+			t.Error(cmp.Diff(got, want))
+		}
+	}
+}
