@@ -1,4 +1,4 @@
-module gosort
+module github.com/azr4e1/gosort
 
 go 1.21.7
 

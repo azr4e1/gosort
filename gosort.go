@@ -30,3 +30,7 @@ func InsertionSort(s []int) {
 		}
 	}
 }
+
+func QuickSort(s []int) {
+	return
+}

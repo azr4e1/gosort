@@ -3,7 +3,7 @@ package gosort_test
 import (
 	"github.com/google/go-cmp/cmp"
 
-	gs "gosort"
+	gs "github.com/azr4e1/gosort"
 	"testing"
 )
 
@@ -42,6 +42,20 @@ func TestInsertionSort_SortsTheGivenArray(t *testing.T) {
 		got := make([]int, len(tc.Input))
 		copy(got, tc.Input)
 		gs.InsertionSort(got)
+
+		if !cmp.Equal(got, want) {
+			t.Error(cmp.Diff(got, want))
+		}
+	}
+}
+
+func TestQuickSort_SortsTheGivenArray(t *testing.T) {
+	t.Parallel()
+	for _, tc := range testCases {
+		want := tc.Value
+		got := make([]int, len(tc.Input))
+		copy(got, tc.Input)
+		gs.QuickSort(got)
 
 		if !cmp.Equal(got, want) {
 			t.Error(cmp.Diff(got, want))
